@@ -13,8 +13,8 @@
   ],
   "author": "",
   "license": "ISC",
-  "engines": { 
-   "node": "14.8.0" 
+  "engines": {
+    "node": "14.8.0"
   },
   "dependencies": {
     "axios": "^0.21.0",
