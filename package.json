@@ -1,0 +1,25 @@
+{
+  "name": "reservation-scratcher",
+  "version": "1.0.0",
+  "description": "scratch your reservations",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd src  && node index.js"
+  },
+  "keywords": [
+    "reservation",
+    "scatch"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "forever-monitor": "^3.0.3",
+    "nodemailer": "^6.4.16",
+    "phantom": "^6.3.0",
+    "phantomjs": "^2.1.7"
+  },
+  "type": "module"
+}
