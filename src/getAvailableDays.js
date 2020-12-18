@@ -21,7 +21,7 @@ export async function getAvailableDays(api) {
         return day.availability.available;
       })
       .map((day) => {
-        return {name: day.name, id: day.id};
+        return {name: day.name, id: day.id, time: day.start_time};
       });
   } catch (error) {
     console.error(error);
