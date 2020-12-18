@@ -56,7 +56,7 @@ import { sendEmail } from "./emailService.js";
     const newlyAvailableEldora = availabilityHasChanged(contentOldEldora, contentNewEldora);
     if (newlyAvailableEldora && !isFirstRun) {
       console.log("Sending message...");
-      let formattedTime = newlyAvailableEldora.time.substring(11, 15);
+      let formattedTime = newlyAvailableEldora.time.substring(11, 16);
       const message = "New Reservation Available at Eldora on: \n" + newlyAvailableEldora.name + " at " + formattedTime;
       sendEmail(process.env.RECIPIENT, message);
     } else {
