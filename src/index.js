@@ -26,24 +26,42 @@ import { sendEmail } from "./emailService.js";
   console.log("Reservation Scratcher Started");
   console.log("Getting available days at Copper...");
 
-  let contentOld = [];
-  let contentNew = [];
+  let contentOldCopper = [];
+  let contentNewCopper = [];
+
+  let contentOldEldora = [];
+  let contentNewEldora = [];
+
   let isFirstRun = true;
   while (true) {
-    const days = await getAvailableDays("copper");
+    const copperDays = await getAvailableDays("copper");
+    const eldoraDays = await getAvailableDays("eldora");
     // console.log("Available days at Copper:");
     // console.log(days);
-    contentOld = contentNew;
-    contentNew = days;
-    const newlyAvailable = availabilityHasChanged(contentOld, contentNew);
-    if (newlyAvailable && !isFirstRun) {
+    contentOldCopper = contentNewCopper;
+    contentNewCopper = copperDays;
+
+    contentOldEldora = contentNewEldora;
+    contentNewEldora = eldoraDays;
+
+    const newlyAvailableCopper = availabilityHasChanged(contentOldCopper, contentNewCopper);
+    if (newlyAvailableCopper && !isFirstRun) {
       console.log("Sending message...");
-      // const message = "Available Days at Copper: \n" + days.length;
-      const message = "New Reservation Available on: \n" + newlyAvailable.name;
+      const message = "New Reservation Available at Copper on: \n" + newlyAvailableCopper.name;
       sendEmail(process.env.RECIPIENT, message);
     } else {
-      console.log("No new reservations.");
+      console.log("No new reservations at Copper.");
     }
+
+    const newlyAvailableEldora = availabilityHasChanged(contentOldEldora, contentNewEldora);
+    if (newlyAvailableEldora && !isFirstRun) {
+      console.log("Sending message...");
+      const message = "New Reservation Available at Eldora on: \n" + newlyAvailableEldora.name;
+      sendEmail(process.env.RECIPIENT, message);
+    } else {
+      console.log("No new reservations at Eldora.");
+    }
+
     isFirstRun = false;
     await sleep(15000);
   }
