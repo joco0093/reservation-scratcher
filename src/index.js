@@ -47,4 +47,4 @@ import { sendEmail } from "./emailService.js";
     isFirstRun = false;
     await sleep(15000);
   }
-})().listen(process.env.PORT || 5000);
+})();
