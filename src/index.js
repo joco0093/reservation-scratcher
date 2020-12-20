@@ -4,6 +4,9 @@ dotenv.config();
 import { getAvailableDays } from "./getAvailableDays.js";
 import { sendEmail } from "./emailService.js";
 
+let eldoraEn = false;
+let copperEn = true;
+
 (async function () {
   const sleep = (m) => new Promise((r) => setTimeout(r, m));
 
@@ -45,7 +48,7 @@ import { sendEmail } from "./emailService.js";
     contentNewEldora = eldoraDays;
 
     const newlyAvailableCopper = availabilityHasChanged(contentOldCopper, contentNewCopper);
-    if (newlyAvailableCopper && !isFirstRun) {
+    if (newlyAvailableCopper && !isFirstRun && copperEn) {
       console.log("Sending message...");
       const message = "New Reservation Available at Copper on: \n" + newlyAvailableCopper.name;
       sendEmail(process.env.RECIPIENT, message);
@@ -54,7 +57,7 @@ import { sendEmail } from "./emailService.js";
     }
 
     const newlyAvailableEldora = availabilityHasChanged(contentOldEldora, contentNewEldora);
-    if (newlyAvailableEldora && !isFirstRun) {
+    if (newlyAvailableEldora && !isFirstRun && eldoraEn) {
       console.log("Sending message...");
       let formattedTime = newlyAvailableEldora.time.substring(11, 16);
       const message = "New Reservation Available at Eldora on: \n" + newlyAvailableEldora.name + " at " + formattedTime;
