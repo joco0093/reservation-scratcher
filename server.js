@@ -1,9 +1,12 @@
 import express from 'express';
 const app = express();
 
+import path from 'path';
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-// app.use(static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
+app.use(express.static(__dirname + "/"));
 
 
 // login page
