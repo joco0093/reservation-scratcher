@@ -1,5 +1,6 @@
 "use strict";
 
+
 var _dotenv = require("dotenv");
 
 var _getAvailableDays = require("./getAvailableDays.js");
@@ -8,7 +9,7 @@ var _emailService = require("./emailService.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_dotenv.default.config();
+_dotenv.config();
 
 let eldoraEn = false;
 let copperEn = true;
