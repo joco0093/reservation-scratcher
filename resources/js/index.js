@@ -11,7 +11,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _dotenv.config();
 
-let eldoraEn = false;
+let eldoraEn = true;
 let copperEn = true;
 
 (async function () {

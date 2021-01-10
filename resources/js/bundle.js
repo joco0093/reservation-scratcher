@@ -14645,7 +14645,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _dotenv.config();
 
-let eldoraEn = false;
+let eldoraEn = true;
 let copperEn = true;
 
 (async function () {
@@ -14686,7 +14686,7 @@ let copperEn = true;
     if (newlyAvailableCopper && !isFirstRun && copperEn) {
       console.log("Sending message...");
       const message = "New Reservation Available at Copper on: \n" + newlyAvailableCopper.name;
-      (0, _emailService.sendEmail)(process.env.RECIPIENT, message);
+      (0, _emailService.PageMethods.sendEmail)(process.env.RECIPIENT, message);
     } else {
       console.log("No new reservations at Copper.");
     }
@@ -14697,7 +14697,7 @@ let copperEn = true;
       console.log("Sending message...");
       let formattedTime = newlyAvailableEldora.time.substring(11, 16);
       const message = "New Reservation Available at Eldora on: \n" + newlyAvailableEldora.name + " at " + formattedTime;
-      (0, _emailService.sendEmail)(process.env.RECIPIENT, message);
+      (0, _emailService.PageMethods.sendEmail)(process.env.RECIPIENT, message);
     } else {
       console.log("No new reservations at Eldora.");
     }
