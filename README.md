@@ -8,4 +8,5 @@ Track ski reservations to notify us of openings in a timely fashion
 
 1. Clone this repo
 2. Run `npm i`
-3. Run `npm start`
+3. Run `npm run browserify` to generate a `bundle.js`
+4. Run `npm start` to start a node express server on localhost:300

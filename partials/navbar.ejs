@@ -1,0 +1,62 @@
+<script>
+  let currNumber = "";
+  const onLoginClick = () => {
+    console.log("Logged in: " + currNumber);
+  };
+  const handlePhoneFieldChange = (number) => {
+    console.log("Phone number input: ", number);
+    currNumber = number;
+  };
+</script>
+
+<!-- Navbar from https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=navbar-with-inline-login-form-in-dropdown -->
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a href="#" class="navbar-brand">Reservation<b> Scratcher</b></a>
+  <button
+    type="button"
+    class="navbar-toggler"
+    data-toggle="collapse"
+    data-target="#navbarCollapse"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Collection of nav links, forms, and other content for toggling -->
+  <div
+    id="navbarCollapse"
+    class="collapse navbar-collapse justify-content-end"
+  >
+    <div class="navbar-nav">
+    <div class="navbar-nav ml-auto">
+      <div class="nav-item dropdown login-dropdown">
+        <a
+          href="#"
+          data-toggle="dropdown"
+          class="nav-item nav-link dropdown-toggle"
+          ><i class="fa fa-user-o"></i> Login</a
+        >
+        <div class="dropdown-menu">
+          <div class="form-inline login-form">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <span class="fa fa-phone"></span>
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone Number"
+                required
+                onchange="handlePhoneFieldChange(this.value)"
+                val
+              />
+            </div>
+            <button class="btn btn-primary" onClick="onLoginClick()">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
